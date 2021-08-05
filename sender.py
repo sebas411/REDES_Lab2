@@ -25,21 +25,21 @@ def transmission(bitarr, serverName, serverPort):
   clientSocket.close()
 
 
-#Aplicacion
+#capa de aplicacion
 
 server = 'localhost'
 port = 12000
 message = "hola que tal como estas?"
 noiseProb = 1/4
 
+#capa de verification
 ba = verification(message)
+#capa de ruido
 noisedBa = noise(ba, noiseProb)
 
 '''print("Before:", ba)
 print("After:", noisedBa)
 print("Difference:", (ba^noisedBa).count(1))'''
 
+#transmission
 transmission(ba, server, port)
-
-
-
